@@ -72,4 +72,13 @@ CREATE TABLE attribute_type (
   attribute_type_id int PRIMARY KEY,
   name varchar(255)
 );
+-- creating product_attribute table
+CREATE TABLE product_attribute (
+  attribute_id int PRIMARY KEY,
+  product_id int,
+  attribute_category_id int,
+  attribute_type_id int,
+  name varchar(255),
+  value varchar(255)
+);
 
