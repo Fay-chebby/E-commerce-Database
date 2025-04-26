@@ -82,3 +82,25 @@ CREATE TABLE product_attribute (
   value varchar(255)
 );
 
+-- Adding foreign keys
+ALTER TABLE product  ADD FOREIGN KEY (brand_id) REFERENCES brand (brand_id);
+
+ALTER TABLE  product  ADD FOREIGN KEY (category_id) REFERENCES product_category (category_id);
+
+ALTER TABLE  product_image  ADD FOREIGN KEY (product_id) REFERENCES product (product_id);
+
+ALTER TABLE size_option  ADD FOREIGN KEY (size_category_id) REFERENCES size_category (size_category_id);
+
+ALTER TABLE product_variation ADD FOREIGN KEY (product_id) REFERENCES product (product_id);
+
+ALTER TABLE product_variation ADD FOREIGN KEY (color_id) REFERENCES color (color_id);
+
+ALTER TABLE product_variation ADD FOREIGN KEY (size_option_id) REFERENCES size_option (size_option_id);
+
+ALTER TABLE product_item ADD FOREIGN KEY (variation_id) REFERENCES product_variation (variation_id);
+
+ALTER TABLE product_attribute ADD FOREIGN KEY (product_id) REFERENCES product (product_id);
+
+ALTER TABLE product_attribute ADD FOREIGN KEY (attribute_category_id) REFERENCES attribute_category (attribute_category_id);
+
+ALTER TABLE product_attribute ADD FOREIGN KEY (attribute_type_id) REFERENCES attribute_type (attribute_type_id);
